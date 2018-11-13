@@ -1,0 +1,584 @@
+
+<!DOCTYPE html>
+<html lang="zh-cn,ja,en,default">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="">
+    <title>Mac + Android studio + Gradle创建和配置Android项目 - null</title>
+    <meta name="author" content="He Gong">
+    
+    
+    
+    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"He Gong","sameAs":["https://github.com/","http://stackoverflow.com/users","https://twitter.com/","https://facebook.com/","https://plus.google.com/","https://www.linkedin.com/profile/","mailto"],"image":"http://ww3.sinaimg.cn/large/006tNc79gw1fb0neee6mlj30dw0aldgf.jpg"},"articleBody":"Mac环境,Android项目创建和配置.\n\n本地环境检测&#9939;检测Java环境是否正常目的: 检测本地Java环境是否正常.流程: 打开terminal, 执行 java -version命令.\n\n输入 java -version命令.\n如下图中2所示,环境正常(最好保持本地的版本是最新的).\n\n\n&#9939;检测Android Studio是否正常需要下载Android Studio,并且按照提示全部进行更新.\n\nAndroid项目创建和配置&#9939;Android项目创建和配置配置目的: 创建Android项目.流程: 打开Android studio,选择新建项目,进行配置.\n\n如下图中1所示.\n\n\n\n\nApplication name: 工程名字, 安装App到手机上显示的名称.\nCompany domain: 公司域名标识.\nProject location: 项目路径.\nPackage name: 包名(可以使用默认的,也可以更改).\n是否支持 C++ 或者 Kotlin(根据实际情况选择).\n下一步.\n\n\n\n\nPhone and Tablet: 选择最低支持的版本,目前是4.0.3可以支持100%的设备.\nInstant App: 是否使用即时App(本示例使用,也可以不使用).\n点击下一步.\n\n\n\n\n如下图中1所示,点击Yes进行Instant App SDK安装.\n\n\n\n\n如下图中1所示, 等待Instant App SDK下载安装完成, 点击下一步.\n\n\n\n\n配置即时App的公共包名: 使用功能名 + feature, 必须全部小写.\n点击下一步.\n\n\n\n\nInstant App URL Host: 必须和之前填的公司域名一样.\nInstant App URL Route Type: 选择Path Pattern.\nInstant App URL Route:  / + Module name(上面输入的公共包名)(示例:/mainfeature)\nActivity Name: 活动名称.(示例:MainActicity).Generate Layout File: 是否自动创建Layou文件.\nLayout Name: 布局文件名称.(示例:activity_main).Backwards Compatibility (AppCompat): 向后兼容模式(建议勾选).\n点击下一步.\n\n\n\n\n选择需要的Activity模板, 一般使用Empty Activity.\n点击下一步.\n\n\n","dateCreated":"2018-11-11T17:24:27+09:00","dateModified":"2018-11-13T11:02:03+09:00","datePublished":"2018-11-11T17:24:27+09:00","description":"Mac环境,Android项目创建和配置.","headline":"Mac + Android studio + Gradle创建和配置Android项目","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"http://yoursite.com/2018/11/11/2/"},"publisher":{"@type":"Organization","name":"He Gong","sameAs":["https://github.com/","http://stackoverflow.com/users","https://twitter.com/","https://facebook.com/","https://plus.google.com/","https://www.linkedin.com/profile/","mailto"],"image":"http://ww3.sinaimg.cn/large/006tNc79gw1fb0neee6mlj30dw0aldgf.jpg","logo":{"@type":"ImageObject","url":"http://ww3.sinaimg.cn/large/006tNc79gw1fb0neee6mlj30dw0aldgf.jpg"}},"url":"http://yoursite.com/2018/11/11/2/"}</script>
+    <meta name="description" content="Mac环境,Android项目创建和配置.">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="Mac + Android studio + Gradle创建和配置Android项目">
+<meta property="og:url" content="http://yoursite.com/2018/11/11/2/index.html">
+<meta property="og:site_name">
+<meta property="og:description" content="Mac环境,Android项目创建和配置.">
+<meta property="og:locale" content="zh-cn">
+<meta property="og:image" content="http://yoursite.com/2018/11/11/2/1.1.png">
+<meta property="og:image" content="http://yoursite.com/2018/11/11/2/1.2.png">
+<meta property="og:image" content="http://yoursite.com/2018/11/11/2/2.1.png">
+<meta property="og:image" content="http://yoursite.com/2018/11/11/2/2.2.png">
+<meta property="og:image" content="http://yoursite.com/2018/11/11/2/2.3.png">
+<meta property="og:image" content="http://yoursite.com/2018/11/11/2/2.4.png">
+<meta property="og:image" content="http://yoursite.com/2018/11/11/2/2.5.png">
+<meta property="og:image" content="http://yoursite.com/2018/11/11/2/2.6.png">
+<meta property="og:image" content="http://yoursite.com/2018/11/11/2/2.7.png">
+<meta property="og:image" content="http://yoursite.com/2018/11/11/2/2.8.png">
+<meta property="og:updated_time" content="2018-11-13T02:02:03.611Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Mac + Android studio + Gradle创建和配置Android项目">
+<meta name="twitter:description" content="Mac环境,Android项目创建和配置.">
+<meta name="twitter:image" content="http://yoursite.com/2018/11/11/2/1.1.png">
+    
+    
+        
+    
+    
+        <meta property="og:image" content="http://ww3.sinaimg.cn/large/006tNc79gw1fb0neee6mlj30dw0aldgf.jpg"/>
+    
+    
+    
+    
+    <!--STYLES-->
+    <link rel="stylesheet" href="/assets/css/style-du2xmrqdqrl2ollgeiw050kpl6l4nbyz7bumjuurjgsxyopifvukebxc9lqe.min.css">
+    <!--STYLES END-->
+    
+
+    
+</head>
+
+    <body>
+        <div id="blog">
+            <!-- Define author's picture -->
+
+
+    
+        
+            
+        
+    
+
+<header id="header" data-behavior="4">
+    <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+    <div class="header-title">
+        <a class="header-title-link" href="/ "></a>
+    </div>
+    
+        
+            <a class="header-right-picture " href="#about">
+        
+        
+            <img class="header-picture" src="http://ww3.sinaimg.cn/large/006tNc79gw1fb0neee6mlj30dw0aldgf.jpg" alt="作者的图片">
+        
+        </a>
+    
+</header>
+
+            <!-- Define author's picture -->
+
+
+
+        
+    
+
+<nav id="sidebar" data-behavior="4">
+    <div class="sidebar-container">
+        
+            <div class="sidebar-profile">
+                <a href="/#about">
+                    <img class="sidebar-profile-picture" src="http://ww3.sinaimg.cn/large/006tNc79gw1fb0neee6mlj30dw0aldgf.jpg" alt="作者的图片">
+                </a>
+                <h4 class="sidebar-profile-name">He Gong</h4>
+                
+                    <h5 class="sidebar-profile-bio"><p>author.bio</p>
+</h5>
+                
+            </div>
+        
+        
+            <ul class="sidebar-buttons">
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="/ " title="首页">
+                    
+                        <i class="sidebar-button-icon fa fa-home" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">首页</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="/all-categories" title="分类">
+                    
+                        <i class="sidebar-button-icon fa fa-bookmark" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">分类</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="/all-tags" title="标签">
+                    
+                        <i class="sidebar-button-icon fa fa-tags" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">标签</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="/all-archives" title="归档">
+                    
+                        <i class="sidebar-button-icon fa fa-archive" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">归档</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link open-algolia-search" href="#search" title="搜索">
+                    
+                        <i class="sidebar-button-icon fa fa-search" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">搜索</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="#about" title="关于">
+                    
+                        <i class="sidebar-button-icon fa fa-question" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">关于</span>
+                    </a>
+            </li>
+            
+        </ul>
+        
+            <ul class="sidebar-buttons">
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="https://github.com/" target="_blank" rel="noopener" title="GitHub">
+                    
+                        <i class="sidebar-button-icon fab fa-github" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">GitHub</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="http://stackoverflow.com/users" target="_blank" rel="noopener" title="Stack Overflow">
+                    
+                        <i class="sidebar-button-icon fab fa-stack-overflow" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Stack Overflow</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="https://twitter.com/" target="_blank" rel="noopener" title="Twitter">
+                    
+                        <i class="sidebar-button-icon fab fa-twitter" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Twitter</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="https://facebook.com/" target="_blank" rel="noopener" title="Facebook">
+                    
+                        <i class="sidebar-button-icon fab fa-facebook" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Facebook</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="https://plus.google.com/" target="_blank" rel="noopener" title="Google Plus">
+                    
+                        <i class="sidebar-button-icon fab fa-google-plus" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Google Plus</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="https://www.linkedin.com/profile/" target="_blank" rel="noopener" title="LinkedIn">
+                    
+                        <i class="sidebar-button-icon fab fa-linkedin" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">LinkedIn</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="/mailto" title="邮箱">
+                    
+                        <i class="sidebar-button-icon fa fa-envelope" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">邮箱</span>
+                    </a>
+            </li>
+            
+        </ul>
+        
+            <ul class="sidebar-buttons">
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="/atom.xml" title="RSS">
+                    
+                        <i class="sidebar-button-icon fa fa-rss" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">RSS</span>
+                    </a>
+            </li>
+            
+        </ul>
+        
+    </div>
+</nav>
+
+            
+            <div id="main" data-behavior="4"
+                 class="
+                        hasCoverMetaIn
+                        ">
+                
+<article class="post">
+    
+    
+        <div class="post-header main-content-wrap text-left">
+    
+        <h1 class="post-title">
+            Mac + Android studio + Gradle创建和配置Android项目
+        </h1>
+    
+    
+        <div class="post-meta">
+    <time datetime="2018-11-11T17:24:27+09:00">
+	
+		    11月 11, 2018
+    	
+    </time>
+    
+</div>
+
+    
+</div>
+
+    
+    <div class="post-content markdown">
+        <div class="main-content-wrap">
+            <p><strong><span class="highlight-text primary">Mac环境,Android项目创建和配置.</span></strong><br><a id="more"></a></p>
+<h1 id="table-of-contents">目录</h1><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#本地环境检测"><span class="toc-text">本地环境检测</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#9939-检测Java环境是否正常"><span class="toc-text">⛓检测Java环境是否正常</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9939-检测Android-Studio是否正常"><span class="toc-text">⛓检测Android Studio是否正常</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Android项目创建和配置"><span class="toc-text">Android项目创建和配置</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#9939-Android项目创建和配置配置"><span class="toc-text">⛓Android项目创建和配置配置</span></a></li></ol></li></ol>
+<h1 id="本地环境检测"><a href="#本地环境检测" class="headerlink" title="本地环境检测"></a><table><tr><td bgcolor="#7FFFD4">本地环境检测</td></tr></table></h1><h2 id="9939-检测Java环境是否正常"><a href="#9939-检测Java环境是否正常" class="headerlink" title="&#9939;检测Java环境是否正常"></a>&#9939;检测Java环境是否正常</h2><div class="alert success info"><p>目的: 检测本地Java环境是否正常.<br>流程: 打开terminal, 执行 java -version命令.</p>
+<ol>
+<li>输入 <code>java -version</code>命令.</li>
+<li>如下图中2所示,环境正常(最好保持本地的版本是最新的).</li>
+</ol>
+<div class="figure left" style="width:;"><a class="fancybox" href="1.1.png" title="" data-caption="" data-fancybox="1"><img class="fig-img" src="1.1.png" alt=""></a></div><div style="clear:both;"></div></div>
+<h2 id="9939-检测Android-Studio是否正常"><a href="#9939-检测Android-Studio是否正常" class="headerlink" title="&#9939;检测Android Studio是否正常"></a>&#9939;检测Android Studio是否正常</h2><div class="alert success info"><p>需要下载Android Studio,并且按照提示全部进行更新.</p>
+<div class="figure left" style="width:;"><a class="fancybox" href="1.2.png" title="" data-caption="" data-fancybox="1"><img class="fig-img" src="1.2.png" alt=""></a></div><div style="clear:both;"></div></div>
+<h1 id="Android项目创建和配置"><a href="#Android项目创建和配置" class="headerlink" title="Android项目创建和配置"></a><table><tr><td bgcolor="#7FFFD4">Android项目创建和配置</td></tr></table></h1><h2 id="9939-Android项目创建和配置配置"><a href="#9939-Android项目创建和配置配置" class="headerlink" title="&#9939;Android项目创建和配置配置"></a>&#9939;Android项目创建和配置配置</h2><div class="alert success info"><p>目的: 创建Android项目.<br>流程: 打开Android studio,选择新建项目,进行配置.</p>
+<ol>
+<li>如下图中1所示.</li>
+</ol>
+<div class="figure left" style="width:;"><a class="fancybox" href="2.1.png" title="" data-caption="" data-fancybox="1"><img class="fig-img" src="2.1.png" alt=""></a></div><div style="clear:both;"></div>
+
+<ol>
+<li>Application name: 工程名字, 安装App到手机上显示的名称.</li>
+<li>Company domain: 公司域名标识.</li>
+<li>Project location: 项目路径.</li>
+<li>Package name: 包名(可以使用默认的,也可以更改).</li>
+<li>是否支持 C++ 或者 Kotlin(根据实际情况选择).</li>
+<li>下一步.</li>
+</ol>
+<div class="figure left" style="width:;"><a class="fancybox" href="2.2.png" title="" data-caption="" data-fancybox="1"><img class="fig-img" src="2.2.png" alt=""></a></div><div style="clear:both;"></div>
+
+<ol>
+<li>Phone and Tablet: 选择最低支持的版本,目前是4.0.3可以支持100%的设备.</li>
+<li>Instant App: 是否使用即时App(本示例使用,也可以不使用).</li>
+<li>点击下一步.</li>
+</ol>
+<div class="figure left" style="width:;"><a class="fancybox" href="2.3.png" title="" data-caption="" data-fancybox="1"><img class="fig-img" src="2.3.png" alt=""></a></div><div style="clear:both;"></div>
+
+<ol>
+<li>如下图中1所示,点击Yes进行Instant App SDK安装.</li>
+</ol>
+<div class="figure left" style="width:;"><a class="fancybox" href="2.4.png" title="" data-caption="" data-fancybox="1"><img class="fig-img" src="2.4.png" alt=""></a></div><div style="clear:both;"></div>
+
+<ol>
+<li>如下图中1所示, 等待Instant App SDK下载安装完成, 点击下一步.</li>
+</ol>
+<div class="figure left" style="width:;"><a class="fancybox" href="2.5.png" title="" data-caption="" data-fancybox="1"><img class="fig-img" src="2.5.png" alt=""></a></div><div style="clear:both;"></div>
+
+<ol>
+<li>配置即时App的公共包名: 使用功能名 + feature, 必须全部小写.</li>
+<li>点击下一步.</li>
+</ol>
+<div class="figure left" style="width:;"><a class="fancybox" href="2.6.png" title="" data-caption="" data-fancybox="1"><img class="fig-img" src="2.6.png" alt=""></a></div><div style="clear:both;"></div>
+
+<ol>
+<li>Instant App URL Host: 必须和之前填的公司域名一样.</li>
+<li>Instant App URL Route Type: 选择Path Pattern.</li>
+<li>Instant App URL Route:  / + Module name(上面输入的公共包名)<code>(示例:/mainfeature)</code></li>
+<li>Activity Name: 活动名称.<code>(示例:MainActicity)</code>.<br>Generate Layout File: 是否自动创建Layou文件.</li>
+<li>Layout Name: 布局文件名称.<code>(示例:activity_main)</code>.<br>Backwards Compatibility (AppCompat): 向后兼容模式(建议勾选).</li>
+<li>点击下一步.</li>
+</ol>
+<div class="figure left" style="width:;"><a class="fancybox" href="2.7.png" title="" data-caption="" data-fancybox="1"><img class="fig-img" src="2.7.png" alt=""></a></div><div style="clear:both;"></div>
+
+<ol>
+<li>选择需要的Activity模板, 一般使用Empty Activity.</li>
+<li>点击下一步.</li>
+</ol>
+<div class="figure left" style="width:;"><a class="fancybox" href="2.8.png" title="" data-caption="" data-fancybox="1"><img class="fig-img" src="2.8.png" alt=""></a></div><div style="clear:both;"></div></div>
+
+            
+
+        </div>
+    </div>
+    <div id="post-footer" class="post-footer main-content-wrap">
+        
+        
+            <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--disabled">
+                
+                    <i class="fa fa-angle-left" aria-hidden="true"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2018/11/05/1/" data-tooltip="Mac + Atom + Hexo + hexo-theme-tranquilpeak主题 + GitHub + 全球IP" aria-label="下一篇: Mac + Atom + Hexo + hexo-theme-tranquilpeak主题 + GitHub + 全球IP">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">下一篇</span>
+                    <i class="fa fa-angle-right" aria-hidden="true"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="Share this post">
+                <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </a>
+        </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/11/11/2/" title="分享到 Facebook">
+                    <i class="fab fa-facebook" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2018/11/11/2/" title="分享到 Twitter">
+                    <i class="fab fa-twitter" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2018/11/11/2/" title="分享到 Google+">
+                    <i class="fab fa-google-plus" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+        
+            
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#table-of-contents" aria-label="目录">
+            
+                <i class="fa fa-list" aria-hidden="true"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+        
+        
+            
+        
+    </div>
+</article>
+
+
+
+                <footer id="footer" class="main-content-wrap">
+    <span class="copyrights">
+        Copyrights &copy; 2018 He Gong. All Rights Reserved.
+    </span>
+</footer>
+
+            </div>
+            
+                <div id="bottom-bar" class="post-bottom-bar" data-behavior="4">
+                    <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--disabled">
+                
+                    <i class="fa fa-angle-left" aria-hidden="true"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2018/11/05/1/" data-tooltip="Mac + Atom + Hexo + hexo-theme-tranquilpeak主题 + GitHub + 全球IP" aria-label="下一篇: Mac + Atom + Hexo + hexo-theme-tranquilpeak主题 + GitHub + 全球IP">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">下一篇</span>
+                    <i class="fa fa-angle-right" aria-hidden="true"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="Share this post">
+                <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </a>
+        </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/11/11/2/" title="分享到 Facebook">
+                    <i class="fab fa-facebook" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2018/11/11/2/" title="分享到 Twitter">
+                    <i class="fab fa-twitter" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2018/11/11/2/" title="分享到 Google+">
+                    <i class="fab fa-google-plus" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+        
+            
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#table-of-contents" aria-label="目录">
+            
+                <i class="fa fa-list" aria-hidden="true"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+                </div>
+                <div id="share-options-bar" class="share-options-bar" data-behavior="4">
+    <i id="btn-close-shareoptions" class="fa fa-times"></i>
+    <ul class="share-options">
+        
+            
+            
+            <li class="share-option">
+                <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/11/11/2/">
+                    <i class="fab fa-facebook" aria-hidden="true"></i><span>分享到 Facebook</span>
+                </a>
+            </li>
+        
+            
+            
+            <li class="share-option">
+                <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2018/11/11/2/">
+                    <i class="fab fa-twitter" aria-hidden="true"></i><span>分享到 Twitter</span>
+                </a>
+            </li>
+        
+            
+            
+            <li class="share-option">
+                <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2018/11/11/2/">
+                    <i class="fab fa-google-plus" aria-hidden="true"></i><span>分享到 Google+</span>
+                </a>
+            </li>
+        
+    </ul>
+</div>
+
+            
+        </div>
+        
+
+
+    
+        
+    
+
+<div id="about">
+    <div id="about-card">
+        <div id="about-btn-close">
+            <i class="fa fa-times"></i>
+        </div>
+        
+            <img id="about-card-picture" src="http://ww3.sinaimg.cn/large/006tNc79gw1fb0neee6mlj30dw0aldgf.jpg" alt="作者的图片">
+        
+            <h4 id="about-card-name">He Gong</h4>
+        
+            <div id="about-card-bio"><p>author.bio</p>
+</div>
+        
+        
+            <div id="about-card-job">
+                <i class="fa fa-briefcase"></i>
+                <br>
+                <p>author.job</p>
+
+            </div>
+        
+        
+            <div id="about-card-location">
+                <i class="fa fa-map-marker-alt"></i>
+                <br>
+                东京
+            </div>
+        
+    </div>
+</div>
+
+        
+        
+<div id="cover" style="background-image:url('http://ww3.sinaimg.cn/large/006tNc79gw1fb0neee6mlj30dw0aldgf.jpg');"></div>
+        <!--SCRIPTS-->
+<script src="/assets/js/script-vufjrm3fmbuttogo1hxuu0w9w0sesk5iyysjuguc2hdhufot9szxg8twijry.min.js"></script>
+<!--SCRIPTS END-->
+
+    
+
+
+
+    </body>
+</html>
