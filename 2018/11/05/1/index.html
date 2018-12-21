@@ -11,7 +11,7 @@
     
     
     
-    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"He Gong","sameAs":["https://github.com/","http://stackoverflow.com/users","https://twitter.com/","https://facebook.com/","https://plus.google.com/","https://www.linkedin.com/profile/","mailto"],"image":"http://ww3.sinaimg.cn/large/006tNc79gw1fb0neee6mlj30dw0aldgf.jpg"},"articleBody":"Mac环境,搭建Blog整体解决方案.\n\nMac运行环境配置&#9939;Homebrew安装目的: 使用Homebrew安装其他环境和软件.流程: 打开terminal,执行下面1的命令.\n\n输入 /usr/bin/ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;命令.\n看到提示后,按RETURN(回车键).\n输入电脑密码.\n\n\n\n\n自动下载安装命令行工具.\n\n\n\n\n安装成功的提示.\nHomebrew的相关说明和命令.(官网: https://brew.sh/index_zh-cn.html)\n\n\n&#9939;Node.js安装目的: 安装Node.js环境.流程: 去官网下载安装macOS的安装包(官网: https://nodejs.org/en/).\n\n选择DOWNLOADS.\n选择左侧稳定版本.\n选择macOS Installer.\n下载成功会在左下角显示.\n\n\n\n\n双击下载的pkg包.\n\n\n\n\n点击安装的时候, 会要求输入电脑密码.\n\n\n\n\n如下图中1所示, 安装成功(使用node -v可以查版本号).\n点击下图中2按钮, 会提示是否删除安装包, 直接删除就好.\n\n\n&#9939;Git安装目的: 安装Git版本控制.流程: 打开terminal,执行brew install git命令.\n\n输入 brew install git命令.\n如下图中2所示,安装成功.\n\n\nAtom安装和配置&#9939;Atom安装(使用VSCode也可以)目的: 安装Atom.流程: 去官网下载安装.\n\n官网: https://atom.io/.\n点击下图中2所示,进行下载.\n下载成功(双击解压).\n\n\n\n\n点击下图中1所示,完成安装(自动打开IDE)\n\n\n&#9939;Atom配置目的: 安装Atom插件.流程: 使用Atom Install a Package安装.\n\n点击Install a Package.\n点击Open Installer.\n\n\n\n\n输入插件的名字.\n点击Install.\n下载并安装完成之后,会如下图中3所示.\n\n\n\n需要安装的插件名称:\n\natom-hexo hexo的插件,必须安装.\nplatfromio-ide-terminal 命令行插件,可以再Atom中使用命令行,建议安装.\ntool-bar 和 tool-bar-markdown-writer, 可视化markdown工具,建议安装.\nmarkdown-preview-enhanced 实时显示blog界面效果,建议安装.\natom-i18n 本地化的插件,英文看不懂的需要安装.\n剩下的插件按照自己的爱好安装.\n\n\nHexo安装和配置&#9939;Hexo安装目的: 安装hexo.流程: 打开terminal,执行npm install -g hexo-cli命令.\n\n输入 npm install -g hexo-cli .\n如下图中2所示,安装成功.\n\n\n&#9939;blog文件夹创建目的: 创建名称为blog的文件夹.流程: 打开terminal,执行hexo init blog命令.\n\n输入 hexo init blog .\n如下图中2篮框所示,是blog的路径.\n如下图3所示,创建成功.\n\n\n&#9939;blog文件夹层级结构说明目的: 查看blog文件夹层级结构.流程: 打开terminal,执行cd blog命令.\n\n输入 cd blog, 可以直接打开blog的文件夹, 或者直接使用command + shift + g, 输入文件夹路径前往.\n输入 ls, 显示文件结构.如下图2所示.\n_config.yml: blog配置文件.\nsource: 资源文件.\nthemes: 主题文件.\npublic: 打包的静态文件.\n\n\n&#9939;blog本地server启动目的: 启动本地的server.流程: 打开terminal,执行hexo server命令.\n\n输入 hexo server.\n如下图2所示, 使用浏览器打开 http://localhost:4000,\n\n\n&#9939;Hexo配置&#9939;Hexo命令主题安装和配置&#9939;主题安装&#9939;主题配置GitHub配置必须有GitHub账号.\n\n&#9939;Github仓库创建目的: 创建Blog的仓库.流程: 进入github个人界面.\n\n点击Repositories\n点击New\n\n\n&#9939;Github仓库配置目的: 进行仓库配置.流程: 进入仓库配置界面\n\nOwner: 蓝色区域显示当前角色的用户名,可以选择使用指定角色来创建仓库(如果包含组织,也可以使用组织名来创建).\nRepository Name: 仓库名称, 必须使用  “用户名.github.io”, 用户名就是蓝色区域显示的名称.\nDescription: 仓库的描述.\n选择仓库是公开库,还是私有库,私有库是收费的.\n初始化README描述文件.\n选择库的语言类型,Blog会有很多种语言类型,所以直接使用None.\n选择执照, MIT 或 Apache 或 None都可以.\n点击Creat repository, 创建仓库.\n\n\n&#9939;Github仓库 –&gt; GitHub Pages设置目的: 配置GitHub Pages.流程: 进入Settings界面,配置GitHub Pages.\n\n点击Settings\n\n\n\n\n生成的博客地址,Blog发布后,可以直接访问.\nSource: 自己选择分支,可使用主分支.\nTheme Chooser: 不用选择.\nCustom domain: 全球IP,如果购买了全球IP,则在这个地方进行设置,可以直接通过全球IP访问Blog.\n开启HTTPS.\n\n\n&#9939;Blog生成地址替换目的: Blog生成地址替换.流程: 进入github个人界面,替换_config.yml中的repository的值.\n\n点击Clone or download.\n复制地址(例:https://github.com/13104495959/13104495959.github.io.git),去掉.git的后缀变成(例:https://github.com/13104495959/13104495959.github.io)\n\n\n\n\n使用Atom打开blog文件夹,打开_config.yml文件.\n\n\n\n\n替换黄色方框中的属性.\ntype: 版本管理方式, 此博客中使用git.\nrepository: 上面复制并且去掉后缀的地址(https://github.com/13104495959/13104495959.github.io).\nbranch: 选择分支,此博客中使用主分支.\n\n\n\n\n\n&#9939;上传Github仓库\n进入blog文件, 执行 cd blog, 如果使用Atom打开blog文件夹, terminal中则不用执行次命令,默认在这个目录下.\n打包文件, 使用命令hexo g.\n上传文件, 使用命令hexo d.\n输入Github账号(第一次需要).\n输入Github密码(第一次需要).(如果需要删除账号密码,去钥匙串中删除即可)\n上传成功,blog修改成功.\n\n\n\b文件层级结构说明图片使用说明\n","dateCreated":"2018-11-05T14:59:19+09:00","dateModified":"2018-11-15T16:09:47+09:00","datePublished":"2018-11-05T14:59:19+09:00","description":"Mac环境,搭建Blog整体解决方案.","headline":"Mac + Atom + Hexo + hexo-theme-tranquilpeak主题 + GitHub + 全球IP","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"http://yoursite.com/2018/11/05/1/"},"publisher":{"@type":"Organization","name":"He Gong","sameAs":["https://github.com/","http://stackoverflow.com/users","https://twitter.com/","https://facebook.com/","https://plus.google.com/","https://www.linkedin.com/profile/","mailto"],"image":"http://ww3.sinaimg.cn/large/006tNc79gw1fb0neee6mlj30dw0aldgf.jpg","logo":{"@type":"ImageObject","url":"http://ww3.sinaimg.cn/large/006tNc79gw1fb0neee6mlj30dw0aldgf.jpg"}},"url":"http://yoursite.com/2018/11/05/1/"}</script>
+    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"He Gong","sameAs":["https://github.com/","http://stackoverflow.com/users","https://twitter.com/","https://facebook.com/","https://plus.google.com/","https://www.linkedin.com/profile/","mailto"],"image":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSVAjs_-vLh9Oz16WROdgCAxbsqxiDUcrWpz5-LQF4t8lDcPBeDuw"},"articleBody":"Mac环境,搭建Blog整体解决方案.\n\nMac运行环境配置&#9939;Homebrew安装目的: 使用Homebrew安装其他环境和软件.流程: 打开terminal,执行下面1的命令.\n\n输入 /usr/bin/ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;命令.\n看到提示后,按RETURN(回车键).\n输入电脑密码.\n\n\n\n\n自动下载安装命令行工具.\n\n\n\n\n安装成功的提示.\nHomebrew的相关说明和命令.(官网: https://brew.sh/index_zh-cn.html)\n\n\n&#9939;Node.js安装目的: 安装Node.js环境.流程: 去官网下载安装macOS的安装包(官网: https://nodejs.org/en/).\n\n选择DOWNLOADS.\n选择左侧稳定版本.\n选择macOS Installer.\n下载成功会在左下角显示.\n\n\n\n\n双击下载的pkg包.\n\n\n\n\n点击安装的时候, 会要求输入电脑密码.\n\n\n\n\n如下图中1所示, 安装成功(使用node -v可以查版本号).\n点击下图中2按钮, 会提示是否删除安装包, 直接删除就好.\n\n\n&#9939;Git安装目的: 安装Git版本控制.流程: 打开terminal,执行brew install git命令.\n\n输入 brew install git命令.\n如下图中2所示,安装成功.\n\n\nAtom安装和配置&#9939;Atom安装(使用VSCode也可以)目的: 安装Atom.流程: 去官网下载安装.\n\n官网: https://atom.io/.\n点击下图中2所示,进行下载.\n下载成功(双击解压).\n\n\n\n\n点击下图中1所示,完成安装(自动打开IDE)\n\n\n&#9939;Atom配置目的: 安装Atom插件.流程: 使用Atom Install a Package安装.\n\n点击Install a Package.\n点击Open Installer.\n\n\n\n\n输入插件的名字.\n点击Install.\n下载并安装完成之后,会如下图中3所示.\n\n\n\n需要安装的插件名称:\n\natom-hexo hexo的插件,必须安装.\nplatfromio-ide-terminal 命令行插件,可以再Atom中使用命令行,建议安装.\ntool-bar 和 tool-bar-markdown-writer, 可视化markdown工具,建议安装.\nmarkdown-preview-enhanced 实时显示blog界面效果,建议安装.\natom-i18n 本地化的插件,英文看不懂的需要安装.\n剩下的插件按照自己的爱好安装.\n\n\nHexo安装和配置&#9939;Hexo安装目的: 安装hexo.流程: 打开terminal,执行npm install -g hexo-cli命令.\n\n输入 npm install -g hexo-cli .\n如下图中2所示,安装成功.\n\n\n&#9939;blog文件夹创建目的: 创建名称为blog的文件夹.流程: 打开terminal,执行hexo init blog命令.\n\n输入 hexo init blog .\n如下图中2篮框所示,是blog的路径.\n如下图3所示,创建成功.\n\n\n&#9939;blog文件夹层级结构说明目的: 查看blog文件夹层级结构.流程: 打开terminal,执行cd blog命令.\n\n输入 cd blog, 可以直接打开blog的文件夹, 或者直接使用command + shift + g, 输入文件夹路径前往.\n输入 ls, 显示文件结构.如下图2所示.\n_config.yml: blog配置文件.\nsource: 资源文件.\nthemes: 主题文件.\npublic: 打包的静态文件.\n\n\n&#9939;blog本地server启动目的: 启动本地的server.流程: 打开terminal,执行hexo server命令.\n\n输入 hexo server.\n如下图2所示, 使用浏览器打开 http://localhost:4000,\n\n\n&#9939;Hexo配置\nblog中的_config.yml文件(属性后面只能有一个空格, 不然属性不生效).\n\ntitle: blog 文章详情最顶部显示的文字内容.\nauthor: He Gong 名称.\nlanguage: # 中文 - zh-cn # 日文 - ja # 英文 - en.\npost_asset_folder: true 设置图片的相对路径, 创建文章的时候, 会自动创建同名的资源文件夹.\n\n\nblog中themes中的指定主题(tranquilpeak)的_config.yml文件.\n\nemail: gonghe0555@gmail.com 邮箱.\nlocation: 东京 地址.\npicture: http://ww3.sinaimg.cn/large/006tNc79gw1fb0neee6mlj30dw0aldgf.jpg 头像的图片.\nclear_reading: true 进入文章详情的时候,隐藏所有文章页面上的侧边栏，让文章占据全宽，以提高阅读，并享受宽图像和封面图像,会被子文件clearReading属性覆盖.\nthumbnail_image: true 文章列表中单个文章是否显示图片.\nthumbnail_image_position: left 文章列表中单个文章显示的图片位置,会被子文件thumbnail_image_position属性覆盖,修改值为left,默认为right.\nauto_thumbnail_image: true 如果没有缩略图图像作为缩略图图像，则自动选择封面图像或帖子库中的第一张照片,会被子文件autoThumbnailImage属性覆盖.\ncover_image: http://ww3.sinaimg.cn/large/006tNc79gw1fb0neee6mlj30dw0aldgf.jpg 博客首页左侧滚动栏的背景图.\n\n\n详细博客的设置\n\ntitle: Mac + Atom + Hexo + hexo-theme-tranquilpeak主题 + GitHub + 全球IP 标题.\n#subtitle: 我是子标题, 子标题, 没发现在哪里显示.\n#帖子的时间 date: 2018-11-05 14:59:19.\n#tags: - Blog 标记.\n#thumbnailImage: 文章列表中单个文章显示的图片地址, 如果不需要定制,可以使用主题的通用设置,不需要使用此属性.\n#coverImage: 文章详情的banner图片地址, 如果不需要定制,可以使用主题的通用设置,不需要使用此属性.\n#coverCaption: 文章详情的banner图片的说明文字, 如果不需要定制,可以使用主题的通用设置,不需要使用此属性.\n#coverImage占据屏幕的高度, 默认是full, 如果不需要定制,可以使用主题的通用设置,不需要使用此属性.\n#coverSize: partial, 帖子的评论\n#帖子的日期,类别等 comments: true\n#meta: true, 导航,共享连接, #actions: true ,#mermaid: true\n#clearReading: true, 进入文章详情的时候,隐藏所有文章页面上的侧边栏，让文章占据全宽，以提高阅读，并享受宽图像和封面图像,会覆盖全局clear_reading的值.#默认是true,如果不需要更改,不需要重新给clearReading赋值.\n#thumbnailImagePosition: left, 文章列表中单个文章显示的图片位置.#会覆盖全局thumbnail_image_position的值,默认是left,如果不需要更改,不需要重新给thumbnailImagePosition赋值.\n#autoThumbnailImage: true, 如果没有缩略图图像作为缩略图图像，则自动选择封面图像或帖子库中的第一张照片,会覆盖全局auto_thumbnail_image的值,默认是true,如果不需要更改,不需要重新给autoThumbnailImage赋值.\n#metaAlignment: center, 进入文章详情的时候, 标题 日期 类别显示的位置,默认是center,如果不需要更改,不需要重新给metaAlignment赋值.\n#coverMeta: in  在文章详情内,标题 时间是否显示在coverImage上面, in 在coverImage上面, out 在coverImage下面,默认是in,如果不需要更改,不需要重新给coverMeta赋值.\n\n\n\n&#9939;Hexo命令\nhexo init folder 初始化命令, folder是想要创建的文件夹的名称, 建议使用blog.\nhexo new name 创建文章的命令, name是Project中的名字(类似于类名).\nhexo generate 简写为 hexo g, 生成静态文件的命令.\nhexo deploy, 部署网站的命令.\nhexo server, 开启本地服务的命令.\nhexo clean, 清除缓存(db.json)和已经生成的静态文件(public)的命令, 如果bolg不刷新, 可以执行此命令, 更换主题后, 必须执行此命令, 否则会造成blog不刷新的问题.\n\n主题安装和配置&#9939;主题安装\nhexo-theme-tranquilpeak 使用这个主题.\n下载主题资源.\n解压主题资源.\n文件移动到blog/themes的目录下,重新命名为tranquilpeak.\n修改blog路径下的_config.yml文件中的theme属性的值为tranquilpeak.\n\n&#9939;主题配置GitHub配置必须有GitHub账号.\n\n&#9939;Github仓库创建目的: 创建Blog的仓库.流程: 进入github个人界面.\n\n点击Repositories\n点击New\n\n\n&#9939;Github仓库配置目的: 进行仓库配置.流程: 进入仓库配置界面\n\nOwner: 蓝色区域显示当前角色的用户名,可以选择使用指定角色来创建仓库(如果包含组织,也可以使用组织名来创建).\nRepository Name: 仓库名称, 必须使用  “用户名.github.io”, 用户名就是蓝色区域显示的名称.\nDescription: 仓库的描述.\n选择仓库是公开库,还是私有库,私有库是收费的.\n初始化README描述文件.\n选择库的语言类型,Blog会有很多种语言类型,所以直接使用None.\n选择执照, MIT 或 Apache 或 None都可以.\n点击Creat repository, 创建仓库.\n\n\n&#9939;Github仓库 –&gt; GitHub Pages设置目的: 配置GitHub Pages.流程: 进入Settings界面,配置GitHub Pages.\n\n点击Settings\n\n\n\n\n生成的博客地址,Blog发布后,可以直接访问.\nSource: 自己选择分支,可使用主分支.\nTheme Chooser: 不用选择.\nCustom domain: 全球IP,如果购买了全球IP,则在这个地方进行设置,可以直接通过全球IP访问Blog.\n开启HTTPS.\n\n\n&#9939;Blog生成地址替换目的: Blog生成地址替换.流程: 进入github个人界面,替换_config.yml中的repository的值.\n\n点击Clone or download.\n复制地址(例:https://github.com/13104495959/13104495959.github.io.git),去掉.git的后缀变成(例:https://github.com/13104495959/13104495959.github.io)\n\n\n\n\n使用Atom打开blog文件夹,打开_config.yml文件.\n\n\n\n\n替换黄色方框中的属性.\ntype: 版本管理方式, 此博客中使用git.\nrepository: 上面复制并且去掉后缀的地址(https://github.com/13104495959/13104495959.github.io).\nbranch: 选择分支,此博客中使用主分支.\n\n\n\n\n\n&#9939;上传Github仓库\n进入blog文件, 执行 cd blog, 如果使用Atom打开blog文件夹, terminal中则不用执行次命令,默认在这个目录下.\n打包文件, 使用命令hexo g.\n上传文件, 使用命令hexo d.\n输入Github账号(第一次需要).\n输入Github密码(第一次需要).(如果需要删除账号密码,去钥匙串中删除即可)\n上传成功,blog修改成功.\n\n\n\b文件层级结构说明图片使用说明\n","dateCreated":"2018-11-05T14:59:19+09:00","dateModified":"2018-11-19T13:48:29+09:00","datePublished":"2018-11-05T14:59:19+09:00","description":"Mac环境,搭建Blog整体解决方案.","headline":"Mac + Atom + Hexo + hexo-theme-tranquilpeak主题 + GitHub + 全球IP","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"http://yoursite.com/2018/11/05/1/"},"publisher":{"@type":"Organization","name":"He Gong","sameAs":["https://github.com/","http://stackoverflow.com/users","https://twitter.com/","https://facebook.com/","https://plus.google.com/","https://www.linkedin.com/profile/","mailto"],"image":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSVAjs_-vLh9Oz16WROdgCAxbsqxiDUcrWpz5-LQF4t8lDcPBeDuw","logo":{"@type":"ImageObject","url":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSVAjs_-vLh9Oz16WROdgCAxbsqxiDUcrWpz5-LQF4t8lDcPBeDuw"}},"url":"http://yoursite.com/2018/11/05/1/"}</script>
     <meta name="description" content="Mac环境,搭建Blog整体解决方案.">
 <meta property="og:type" content="blog">
 <meta property="og:title" content="Mac + Atom + Hexo + hexo-theme-tranquilpeak主题 + GitHub + 全球IP">
@@ -47,7 +47,7 @@
 <meta property="og:image" content="http://yoursite.com/2018/11/05/1/5.4.2.png">
 <meta property="og:image" content="http://yoursite.com/2018/11/05/1/5.4.3.png">
 <meta property="og:image" content="http://yoursite.com/2018/11/05/1/5.5.1.png">
-<meta property="og:updated_time" content="2018-11-15T07:09:47.490Z">
+<meta property="og:updated_time" content="2018-11-19T04:48:29.721Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Mac + Atom + Hexo + hexo-theme-tranquilpeak主题 + GitHub + 全球IP">
 <meta name="twitter:description" content="Mac环境,搭建Blog整体解决方案.">
@@ -57,7 +57,7 @@
         
     
     
-        <meta property="og:image" content="http://ww3.sinaimg.cn/large/006tNc79gw1fb0neee6mlj30dw0aldgf.jpg"/>
+        <meta property="og:image" content="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSVAjs_-vLh9Oz16WROdgCAxbsqxiDUcrWpz5-LQF4t8lDcPBeDuw"/>
     
     
     
@@ -91,7 +91,7 @@
             <a class="header-right-picture " href="#about">
         
         
-            <img class="header-picture" src="http://ww3.sinaimg.cn/large/006tNc79gw1fb0neee6mlj30dw0aldgf.jpg" alt="作者的图片">
+            <img class="header-picture" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSVAjs_-vLh9Oz16WROdgCAxbsqxiDUcrWpz5-LQF4t8lDcPBeDuw" alt="作者的图片">
         
         </a>
     
@@ -109,7 +109,7 @@
         
             <div class="sidebar-profile">
                 <a href="/#about">
-                    <img class="sidebar-profile-picture" src="http://ww3.sinaimg.cn/large/006tNc79gw1fb0neee6mlj30dw0aldgf.jpg" alt="作者的图片">
+                    <img class="sidebar-profile-picture" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSVAjs_-vLh9Oz16WROdgCAxbsqxiDUcrWpz5-LQF4t8lDcPBeDuw" alt="作者的图片">
                 </a>
                 <h4 class="sidebar-profile-name">He Gong</h4>
                 
@@ -406,7 +406,64 @@
 <li>如下图2所示, 使用浏览器打开 <a href="http://localhost:4000" target="_blank" rel="noopener">http://localhost:4000</a>,<div class="figure left" style="width:;"><a class="fancybox" href="3.4.1.png" title="" data-caption="" data-fancybox="1"><img class="fig-img" src="3.4.1.png" alt=""></a></div><div style="clear:both;"></div></li>
 </ol>
 </div>
-<h2 id="9939-Hexo配置"><a href="#9939-Hexo配置" class="headerlink" title="&#9939;Hexo配置"></a>&#9939;Hexo配置</h2><h2 id="9939-Hexo命令"><a href="#9939-Hexo命令" class="headerlink" title="&#9939;Hexo命令"></a>&#9939;Hexo命令</h2><h1 id="主题安装和配置"><a href="#主题安装和配置" class="headerlink" title="主题安装和配置"></a><table><tr><td bgcolor="#7FFFD4">主题安装和配置</td></tr></table></h1><h2 id="9939-主题安装"><a href="#9939-主题安装" class="headerlink" title="&#9939;主题安装"></a>&#9939;主题安装</h2><h2 id="9939-主题配置"><a href="#9939-主题配置" class="headerlink" title="&#9939;主题配置"></a>&#9939;主题配置</h2><h1 id="GitHub配置"><a href="#GitHub配置" class="headerlink" title="GitHub配置"></a><table><tr><td bgcolor="#7FFFD4">GitHub配置</td></tr></table></h1><div class="alert success info"><p>必须有GitHub账号.</p>
+<h2 id="9939-Hexo配置"><a href="#9939-Hexo配置" class="headerlink" title="&#9939;Hexo配置"></a>&#9939;Hexo配置</h2><ol>
+<li><p>blog中的_config.yml文件(属性后面只能有一个空格, 不然属性不生效).</p>
+<ol>
+<li>title: blog 文章详情最顶部显示的文字内容.</li>
+<li>author: He Gong 名称.</li>
+<li>language: # 中文 - zh-cn # 日文 - ja # 英文 - en.</li>
+<li>post_asset_folder: true 设置图片的相对路径, 创建文章的时候, 会自动创建同名的资源文件夹.</li>
+</ol>
+</li>
+<li><p>blog中themes中的指定主题(tranquilpeak)的_config.yml文件.</p>
+<ol>
+<li>email: <a href="mailto:gonghe0555@gmail.com" target="_blank" rel="noopener">gonghe0555@gmail.com</a> 邮箱.</li>
+<li>location: 东京 地址.</li>
+<li>picture: <a href="http://ww3.sinaimg.cn/large/006tNc79gw1fb0neee6mlj30dw0aldgf.jpg" target="_blank" rel="noopener">http://ww3.sinaimg.cn/large/006tNc79gw1fb0neee6mlj30dw0aldgf.jpg</a> 头像的图片.</li>
+<li>clear_reading: true 进入文章详情的时候,隐藏所有文章页面上的侧边栏，让文章占据全宽，以提高阅读，并享受宽图像和封面图像,会被子文件clearReading属性覆盖.</li>
+<li>thumbnail_image: true 文章列表中单个文章是否显示图片.</li>
+<li>thumbnail_image_position: left 文章列表中单个文章显示的图片位置,会被子文件thumbnail_image_position属性覆盖,修改值为left,默认为right.</li>
+<li>auto_thumbnail_image: true 如果没有缩略图图像作为缩略图图像，则自动选择封面图像或帖子库中的第一张照片,会被子文件autoThumbnailImage属性覆盖.</li>
+<li>cover_image: <a href="http://ww3.sinaimg.cn/large/006tNc79gw1fb0neee6mlj30dw0aldgf.jpg" target="_blank" rel="noopener">http://ww3.sinaimg.cn/large/006tNc79gw1fb0neee6mlj30dw0aldgf.jpg</a> 博客首页左侧滚动栏的背景图.</li>
+</ol>
+</li>
+<li><p>详细博客的设置</p>
+<ol>
+<li>title: Mac + Atom + Hexo + hexo-theme-tranquilpeak主题 + GitHub + 全球IP 标题.</li>
+<li>#subtitle: 我是子标题, 子标题, 没发现在哪里显示.</li>
+<li>#帖子的时间 date: 2018-11-05 14:59:19.</li>
+<li>#tags: - Blog 标记.</li>
+<li>#thumbnailImage: 文章列表中单个文章显示的图片地址, 如果不需要定制,可以使用主题的通用设置,不需要使用此属性.</li>
+<li>#coverImage: 文章详情的banner图片地址, 如果不需要定制,可以使用主题的通用设置,不需要使用此属性.</li>
+<li>#coverCaption: 文章详情的banner图片的说明文字, 如果不需要定制,可以使用主题的通用设置,不需要使用此属性.</li>
+<li>#coverImage占据屏幕的高度, 默认是full, 如果不需要定制,可以使用主题的通用设置,不需要使用此属性.</li>
+<li>#coverSize: partial, 帖子的评论</li>
+<li>#帖子的日期,类别等 comments: true</li>
+<li>#meta: true, 导航,共享连接, #actions: true ,#mermaid: true</li>
+<li>#clearReading: true, 进入文章详情的时候,隐藏所有文章页面上的侧边栏，让文章占据全宽，以提高阅读，并享受宽图像和封面图像,会覆盖全局clear_reading的值.#默认是true,如果不需要更改,不需要重新给clearReading赋值.</li>
+<li>#thumbnailImagePosition: left, 文章列表中单个文章显示的图片位置.#会覆盖全局thumbnail_image_position的值,默认是left,如果不需要更改,不需要重新给thumbnailImagePosition赋值.</li>
+<li>#autoThumbnailImage: true, 如果没有缩略图图像作为缩略图图像，则自动选择封面图像或帖子库中的第一张照片,会覆盖全局auto_thumbnail_image的值,默认是true,如果不需要更改,不需要重新给autoThumbnailImage赋值.</li>
+<li>#metaAlignment: center, 进入文章详情的时候, 标题 日期 类别显示的位置,默认是center,如果不需要更改,不需要重新给metaAlignment赋值.</li>
+<li>#coverMeta: in  在文章详情内,标题 时间是否显示在coverImage上面, in 在coverImage上面, out 在coverImage下面,默认是in,如果不需要更改,不需要重新给coverMeta赋值.</li>
+</ol>
+</li>
+</ol>
+<h2 id="9939-Hexo命令"><a href="#9939-Hexo命令" class="headerlink" title="&#9939;Hexo命令"></a>&#9939;Hexo命令</h2><ol>
+<li><code>hexo init folder</code> 初始化命令, folder是想要创建的文件夹的名称, 建议使用blog.</li>
+<li><code>hexo new name</code> 创建文章的命令, name是Project中的名字(类似于类名).</li>
+<li><code>hexo generate</code> 简写为 <code>hexo g</code>, 生成静态文件的命令.</li>
+<li><code>hexo deploy</code>, 部署网站的命令.</li>
+<li><code>hexo server</code>, 开启本地服务的命令.</li>
+<li><code>hexo clean</code>, 清除缓存(db.json)和已经生成的静态文件(public)的命令, 如果bolg不刷新, 可以执行此命令, 更换主题后, 必须执行此命令, 否则会造成blog不刷新的问题.</li>
+</ol>
+<h1 id="主题安装和配置"><a href="#主题安装和配置" class="headerlink" title="主题安装和配置"></a><table><tr><td bgcolor="#7FFFD4">主题安装和配置</td></tr></table></h1><h2 id="9939-主题安装"><a href="#9939-主题安装" class="headerlink" title="&#9939;主题安装"></a>&#9939;主题安装</h2><ol>
+<li>hexo-theme-tranquilpeak 使用这个主题.</li>
+<li>下载主题资源.</li>
+<li>解压主题资源.</li>
+<li>文件移动到blog/themes的目录下,重新命名为<code>tranquilpeak</code>.</li>
+<li>修改blog路径下的_config.yml文件中的theme属性的值为<code>tranquilpeak</code>.</li>
+</ol>
+<h2 id="9939-主题配置"><a href="#9939-主题配置" class="headerlink" title="&#9939;主题配置"></a>&#9939;主题配置</h2><h1 id="GitHub配置"><a href="#GitHub配置" class="headerlink" title="GitHub配置"></a><table><tr><td bgcolor="#7FFFD4">GitHub配置</td></tr></table></h1><div class="alert success info"><p>必须有GitHub账号.</p>
 </div>
 <h2 id="9939-Github仓库创建"><a href="#9939-Github仓库创建" class="headerlink" title="&#9939;Github仓库创建"></a>&#9939;Github仓库创建</h2><div class="alert success info"><p>目的: 创建Blog的仓库.<br>流程: 进入github个人界面.</p>
 <ol>
@@ -679,7 +736,7 @@
             <i class="fa fa-times"></i>
         </div>
         
-            <img id="about-card-picture" src="http://ww3.sinaimg.cn/large/006tNc79gw1fb0neee6mlj30dw0aldgf.jpg" alt="作者的图片">
+            <img id="about-card-picture" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSVAjs_-vLh9Oz16WROdgCAxbsqxiDUcrWpz5-LQF4t8lDcPBeDuw" alt="作者的图片">
         
             <h4 id="about-card-name">He Gong</h4>
         
@@ -706,7 +763,7 @@
 
         
         
-<div id="cover" style="background-image:url('http://ww3.sinaimg.cn/large/006tNc79gw1fb0neee6mlj30dw0aldgf.jpg');"></div>
+<div id="cover" style="background-image:url('https://cn.mook.com.tw/images/upload/article/8611/A8611_1369109339_0.jpg');"></div>
         <!--SCRIPTS-->
 <script src="/assets/js/script-vufjrm3fmbuttogo1hxuu0w9w0sesk5iyysjuguc2hdhufot9szxg8twijry.min.js"></script>
 <!--SCRIPTS END-->
